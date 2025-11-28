@@ -12,14 +12,84 @@
   </head>
   <body>
     <div id="app">
+      <div id="global-settings">
+        <h2>Paramètres des articles</h2>
+        <div class="settings-row">
+          <span>Langues :</span>
+          <label><input type="checkbox" data-lang="fr" checked /> fr</label>
+          <label><input type="checkbox" data-lang="en" checked /> en</label>
+        </div>
+        <div class="settings-row">
+          <label for="global-keywords">Mots-clés globaux</label>
+          <input
+            id="global-keywords"
+            type="text"
+            value="politique, économique"
+          />
+        </div>
+        <div class="settings-row small">
+          <span>Période : dernières 24 h (fixe pour l'instant)</span>
+        </div>
+      </div>
+
       <div id="map"></div>
+
+      <aside id="news-panel" class="closed">
+        <button id="close-news-panel" aria-label="Fermer le panneau des nouvelles">×</button>
+        <h2 id="news-title">Aucun article sélectionné</h2>
+        <p id="news-summary">
+          Sélectionnez un article dans la liste à droite pour voir les détails ici.
+        </p>
+        <a
+          id="news-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ouvrir l'article dans le navigateur
+        </a>
+      </aside>
+
       <aside id="country-panel" class="closed">
         <button id="close-panel" aria-label="Fermer le panneau">×</button>
+
+        <div id="country-actions">
+          <label for="color-mode">Couleur des pays :</label>
+          <select id="color-mode">
+            <option value="info" selected>Quantité de données</option>
+            <option value="gdp">PIB (approx.)</option>
+            <option value="population">Population</option>
+          </select>
+        </div>
+
         <h1 id="country-name">Sélectionnez un pays</h1>
         <p id="country-description">
           Cliquez sur un pays pour afficher quelques informations.
         </p>
+
         <ul id="country-stats"></ul>
+
+        <section id="news-section">
+          <label>Articles de presse</label>
+          <div id="news-list">
+            <p class="news-empty">Aucun article disponible.</p>
+          </div>
+        </section>
+
+        <footer id="panel-footer">
+          <div id="legend">
+            <div id="legend-header">
+              <span id="legend-label">Quantité de données</span>
+            </div>
+            <div id="legend-bar"></div>
+            <div id="legend-ticks">
+              <span>Faible</span>
+              <span>Élevé</span>
+            </div>
+          </div>
+          <div id="update-time">Données locales (aucune mise à jour en ligne encore).</div>
+          <div id="data-count">Aucun pays sélectionné.</div>
+        </footer>
       </aside>
     </div>
 
