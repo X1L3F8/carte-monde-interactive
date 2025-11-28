@@ -206,6 +206,21 @@ app.post("/api/news/search-and-summarize", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+let server = null;
+
+app.post("/api/shutdown", (req, res) => {
+  console.log("[server] Arrêt demandé par le client");
+  res.json({ ok: true });
+  if (server) {
+    setTimeout(() => {
+      server.close(() => {
+        console.log("[server] Arrêt complet");
+        process.exit(0);
+      });
+    }, 100);
+  }
+});
+
+server = app.listen(PORT, () => {
   console.log(`[server] API de nouvelles/IA en écoute sur http://localhost:${PORT}`);
 });
