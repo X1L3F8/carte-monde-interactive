@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Carte du monde interactive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div id="map"></div>
+      <aside id="country-panel" class="closed">
+        <button id="close-panel" aria-label="Fermer le panneau">×</button>
+        <h1 id="country-name">Sélectionnez un pays</h1>
+        <p id="country-description">
+          Cliquez sur un pays pour afficher quelques informations.
+        </p>
+        <ul id="country-stats"></ul>
+      </aside>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
